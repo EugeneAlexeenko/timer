@@ -1,32 +1,36 @@
 body{
-      padding: 10px;
-      border: 2px solid black;
-      border-radius: 10px;
-    }
-    .btn-controls{
-      display: flex;
-      justify-content: space-around;
-    }
-    .btn-control {
-      padding: 10px;
-      flex-basis: 50%;
-      flex-grow: 1;
-      font-size: 30px;
-      border: none;
-      color: #fff;
-      transition: 5s;
-    }
-    .btn-control:focus{
-      outline: none;
-    }
-    .btn-control--start{
-      background: green;
-    }
-    .btn-control--reset{
-      background: red;
-    }
-    .timerWindow{
-      text-align: center;
-      font-size: 100px;
-      font-family: "Hack";
-    }
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background: #ccc;
+}
+.btn-controls{
+  display: flex;
+  justify-content: space-around;
+}
+.btn-control {
+  padding: 10px;
+  flex-basis: 50%;
+  flex-grow: 1;
+  font-size: 30px;
+  border: none;
+  color: #fff;
+  transition: 5s;
+}
+.btn-control:hover{
+  cursor: pointer;
+}
+.btn-control:focus{
+  outline: none;
+}
+.btn-control--start{
+  background: green;
+}
+.btn-control--reset{
+  background: red;
+}
+.timer-window{
+  text-align: center;
+  font-size: 100px;
+  font-family: "Hack";
+}
