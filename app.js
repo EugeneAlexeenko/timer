@@ -5,15 +5,18 @@ function Timer() {
       secondsToStop,
       currentMode;
   
-  var timerWindow      = document.querySelector('#timer-window'),
-      btnModePomodoro  = document.querySelector('#btn-mode-pomodoro'),
-      btnModeCountdown = document.querySelector('#btn-mode-countdown'),
-      btnStart         = document.querySelector('#btn-start'),
-      btnReset         = document.querySelector('#btn-reset');
+  var timerWindow       = document.querySelector('#timer-window'),
+      btnModePomodoro   = document.querySelector('#btn-mode-pomodoro'),
+      btnModeShortBreak = document.querySelector('#btn-mode-shortbreak'),
+      btnModeLongBreak  = document.querySelector('#btn-mode-longbreak'),
+      btnStart          = document.querySelector('#btn-start'),
+      btnReset          = document.querySelector('#btn-reset');
 
+//sets modes in minutes
   var mode = {
     pomodoro: 25,
-    countdown: 60
+    shortBreak: 5,
+    longBreak: 10
   };
   
   function setMode(newMode) {
@@ -25,13 +28,14 @@ function Timer() {
   function start() {
     secondsToStop = mode[currentMode];
     showTimer();
+    btnStart.style.display = "none";
+    btnReset.style.display = "block";
     
     timerId = setInterval(function() {
       secondsToStop--;
       console.log("seconds to stop " + secondsToStop);
       showTimer();
       if (secondsToStop === 0) {
-        console.log("time is over"); //todo написать реакцию
         reset();//временное решение
       }
     }, 1000);
@@ -42,34 +46,38 @@ function Timer() {
     secondsToStop = mode[currentMode];
     showTimer();
     btnStart.style.display = "block";
+    btnReset.style.display = "none";
   };
   
   this.init = function() {
     setMode("pomodoro");
     secondsToStop = mode[currentMode];
     showTimer();
+    btnReset.style.display = "none";
   };
   
    function showTimer() {
      timerWindow.innerHTML = secondsToStop;
   }
 
+  btnModeShortBreak.addEventListener("click", function() {
+    setMode("shortBreak");
+  });
+
   btnModePomodoro.addEventListener("click", function() {
     setMode("pomodoro");
   });
 
-  btnModeCountdown.addEventListener("click", function() {
-    setMode("countdown");
+  btnModeLongBreak.addEventListener("click", function() {
+    setMode("longBreak");
   });
 
   btnStart.addEventListener("click", function() {
     start();
-    this.style.display = "none";
   });
 
   btnReset.addEventListener("click", function() {
     reset();
-    btnStart.style.display = "block";
   });
 }
 

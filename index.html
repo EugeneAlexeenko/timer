@@ -8,19 +8,19 @@
 </head>
 <body>
 
-  <h2>Выбери режим:</h2>
-  <button id="btn-mode-pomodoro">pomodoro</button>
-  <button id="btn-mode-countdown">countdown</button>
+  <div class="modes">
+    <button id="btn-mode-shortbreak" class="btn-mode">short break (s)</button>
+    <button id="btn-mode-pomodoro" class="btn-mode">pomodoro (p)</button>
+    <button id="btn-mode-longbreak" class="btn-mode">long break (l)</button>
+  </div>
   
-  <hr>
-  
-  <div id="timer-window" class="timer-window">00</div>
-  
-  <hr>
-    
-  <div class="btn-controls">
-    <button id="btn-start" class="btn-control btn-control--start">start</button>
-    <button id="btn-reset" class="btn-control btn-control--reset">reset</button>
+  <div class="timer-container">
+    <div id="timer-window" class="timer-window">00</div>
+  </div>
+     
+  <div class="controls">
+    <button id="btn-start" class="btn-control btn-control--start">start (space)</button>
+    <button id="btn-reset" class="btn-control btn-control--reset">reset (esc)</button>
   </div>
 
 </body>

@@ -1,10 +1,48 @@
-body{
-  padding: 10px;
-  border: 2px solid black;
-  border-radius: 10px;
-  background: #ccc;
+html{
+  font-size: 16px;
 }
-.btn-controls{
+body{
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+.modes{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+.btn-mode{
+  padding: 10px;
+  flex-grow: 1;
+  font-size: 2em;
+  color: #2580BC;
+  background: #272822;
+  border: none;
+  transition: 0.3s;
+}
+.btn-mode:hover{
+  cursor: pointer;
+  background: #2E2F29; 
+  transition: 0.3s;
+}
+.btn-mode:focus{
+  outline: none;
+}
+.timer-container{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  background: #272822;
+}
+.timer-window{
+  font-size: 14rem;
+  color: #8ADB2D;
+}
+.controls{
+  height: 100px;
   display: flex;
   justify-content: space-around;
 }
@@ -15,22 +53,22 @@ body{
   font-size: 30px;
   border: none;
   color: #fff;
-  transition: 5s;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .btn-control:hover{
   cursor: pointer;
+  background: #2E2F29; 
+  transition: 0.3s;
 }
 .btn-control:focus{
   outline: none;
 }
 .btn-control--start{
-  background: green;
+  color: #8ADB2D;
+  background: #272822;
 }
 .btn-control--reset{
-  background: red;
-}
-.timer-window{
-  text-align: center;
-  font-size: 100px;
-  font-family: "Hack";
+  color: #F2264B;
+  background: #272822;
 }
