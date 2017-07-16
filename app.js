@@ -11,12 +11,13 @@ function Timer() {
       btnModeShortBreak = document.querySelector('#btn-mode-shortbreak'),
       btnModeLongBreak  = document.querySelector('#btn-mode-longbreak'),
       btnStart          = document.querySelector('#btn-start'),
-      btnReset          = document.querySelector('#btn-reset');
+      btnReset          = document.querySelector('#btn-reset'),
+      audio             = document.querySelector('#audio');
 
 //sets modes in minutes
   var mode = {
     pomodoro: 25,
-    shortBreak: 5,
+    shortBreak: 0.1,
     longBreak: 10
   };
   
@@ -42,6 +43,11 @@ function Timer() {
       }
     }, 1000);
   };
+
+  function alarm() {
+    audio.play();
+    audio.pause();
+  }
   
   function reset() {
     isRunning = false;
