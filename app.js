@@ -12,12 +12,13 @@ function Timer() {
       btnModeLongBreak  = document.querySelector('#btn-mode-longbreak'),
       btnStart          = document.querySelector('#btn-start'),
       btnReset          = document.querySelector('#btn-reset'),
-      audio             = document.querySelector('#audio');
+      audioBeep         = document.querySelector('#audio-beep'),
+      audioAlarm        = document.querySelector('#audio-alarm');
 
 //sets modes in minutes
   var mode = {
     pomodoro: 25,
-    shortBreak: 0.1,
+    shortBreak: 5,
     longBreak: 10
   };
   
@@ -38,19 +39,19 @@ function Timer() {
     timerId = setInterval(function() {
       secondsToStop--;
       showTimer();
+      if (secondsToStop === 60) {
+        audioBeep.play();
+      }
       if (secondsToStop === 0) {
-        reset();//временное решение
+        clearInterval(timerId);
+        audioAlarm.play();
       }
     }, 1000);
   };
 
-  function alarm() {
-    audio.play();
-    audio.pause();
-  }
-  
   function reset() {
     isRunning = false;
+    audioAlarm.pause();
     clearInterval(timerId);
     convertMinToSec();
     showTimer();
